@@ -1,25 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Inicio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - AgroVida SpA</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f5; color: #2e3d32; line-height: 1.6; }
+        header { background-color: #2d6a4f; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h2 { font-size: 1.5rem; }
+        nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #b7e4c7; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; }
+        .hero { background: white; padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 2rem; border-left: 6px solid #40916c; }
+        .hero h1 { color: #1b4332; margin-bottom: 0.5rem; }
+        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card h2 { color: #2d6a4f; margin-bottom: 1rem; border-bottom: 2px solid #e9ecef; padding-bottom: 0.5rem; }
+        .data-item { margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .badge { background-color: #d8f3dc; color: #1b4332; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; }
+    </style>
 </head>
 <body>
 
-<nav>
-    {% url 'detalle' %}Inicio</a> |
-    <a url 'productos' %}Productos</a> |
-    <a href="{% url 'contacto' %}">Contacto</<h1>Bienvenido a AgroVida SpA</h1>
+<header>
+    <h2>AgroVida SpA</h2>
+    <nav>
+        <a href="{% url 'detalle' %}">Inicio</a>
+        <a href="{% url 'productos' %}">Productos</a>
+        <a href="{% url 'contacto' %}">Contacto</a>
+    </nav>
+</header>
 
-<p>
-Empresa dedicada a la venta de insumos agrícolas para agricultores y empresas del sector.
-</p>
+<div class="container">
+    <section class="hero">
+        <h1>Bienvenido a AgroVida SpA</h1>
+        <p>Empresa dedicada a la venta e innovación en insumos agrícolas para el desarrollo del campo.</p>
+    </section>
 
-<h2>Producto destacado</h2>
-
-<p>{{ producto.nombre }}</p>
-<p>{{ producto.categoria }}</p>
-<p>{{ producto.precio }}</p>
-<p>{{ producto.stock }}</p>
+    <section class="card">
+        <h2>Producto Destacado</h2>
+        {% if producto %}
+            <div class="data-item"><strong>Nombre:</strong> {{ producto.nombre }}</div>
+            <div class="data-item"><strong>Categoría:</strong> <span class="badge">{{ producto.categoria }}</span></div>
+            <div class="data-item"><strong>Precio:</strong> ${{ producto.precio }}</div>
+            <div class="data-item"><strong>Stock:</strong> {{ producto.stock }} unidades</div>
+        {% else %}
+            {% for p in productos %}
+                {% if forloop.first %}
+                    <div class="data-item"><strong>Nombre:</strong> {{ p.nombre }}</div>
+                    <div class="data-item"><strong>Categoría:</strong> <span class="badge">{{ p.categoria }}</span></div>
+                    <div class="data-item"><strong>Precio:</strong> ${{ p.precio }}</div>
+                    <div class="data-item"><strong>Stock:</strong> {{ p.stock }} unidades</div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </section>
+</div>
 
 </body>
 </html>

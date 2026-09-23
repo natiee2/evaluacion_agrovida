@@ -1,21 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Contacto</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - AgroVida SpA</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f5; color: #2e3d32; line-height: 1.6; }
+        header { background-color: #2d6a4f; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h2 { font-size: 1.5rem; }
+        nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #b7e4c7; }
+        .container { max-width: 700px; margin: 2rem auto; padding: 0 1.5rem; }
+        .card { background: white; padding: 2.5rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card h1 { color: #1b4332; margin-bottom: 1.5rem; border-bottom: 2px solid #e9ecef; padding-bottom: 0.5rem; }
+        .info-group { margin-bottom: 1rem; font-size: 1.1rem; }
+        .info-group strong { color: #2d6a4f; display: inline-block; width: 100px; }
+    </style>
 </head>
 <body>
 
-<nav>
-    {% url 'detalle' %}Inicio</a> |
-    {% url 'productos' %}Productos</a> |
-    <a href'contacto' %}Contacto</a>
-</nav>
+<header>
+    <h2>AgroVida SpA</h2>
+    <nav>
+        <a href="{% url 'detalle' %}">Inicio</a>
+        <a href="{% url 'productos' %}">Productos</a>
+        <a href="{% url 'contacto' %}">Contacto</a>
+    </nav>
+</header>
 
-<h1>Contacto</h1>
-
-<p>Dirección: Avenida Agrícola 123, Antofagasta</p>
-<p>Teléfono: +56 9 1234 5678</p>
-<p>Correo: contacto@agrovida.cl</p>
+<div class="container">
+    <div class="card">
+        <h1>Información de Contacto</h1>
+        <div class="info-group"><strong>Dirección:</strong> Avenida Agrícola 123, Antofagasta</div>
+        <div class="info-group"><strong>Teléfono:</strong> +56 9 1234 5678</div>
+        <div class="info-group"><strong>Correo:</strong> contacto@agrovida.cl</div>
+    </div>
+</div>
 
 </body>
 </html>

@@ -1,25 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Productos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - AgroVida SpA</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f5; color: #2e3d32; line-height: 1.6; }
+        header { background-color: #2d6a4f; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        header h2 { font-size: 1.5rem; }
+        nav a { color: white; text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
+        nav a:hover { color: #b7e4c7; }
+        .container { max-width: 1000px; margin: 2rem auto; padding: 0 1.5rem; }
+        h1 { color: #1b4332; margin-bottom: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .product-card { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid #52b788; transition: transform 0.2s; }
+        .product-card:hover { transform: translateY(-4px); }
+        .product-card h3 { color: #2d6a4f; margin-bottom: 0.8rem; font-size: 1.25rem; }
+        .product-card p { margin-bottom: 0.4rem; }
+        .badge { background-color: #d8f3dc; color: #1b4332; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; }
+        .price { font-size: 1.2rem; color: #1b4332; font-weight: bold; margin-top: 0.5rem; }
+    </style>
 </head>
 <body>
 
-<nav>
-    <a url 'detalle' %}Inicio</a> |
-    <% url 'productos' %}Productos</a> |
-    <a url 'contacto' %}Contacto</a>
-</nav>
+<header>
+    <h2>AgroVida SpA</h2>
+    <nav>
+        <a href="{% url 'detalle' %}">Inicio</a>
+        <a href="{% url 'productos' %}">Productos</a>
+        <a href="{% url 'contacto' %}">Contacto</a>
+    </nav>
+</header>
 
-<h1>Productos</h1>
-
-{% for producto in productos %}
-<hr>
-<h3>{{ producto.nombre }}</h3>
-<p>Categoría: {{ producto.categoria }}</p>
-<p>Precio: {{ producto.precio }}</p>
-<p>Stock: {{ producto.stock }}</p>
-{% endfor %}
+<div class="container">
+    <h1>Catálogo de Productos</h1>
+    <div class="grid">
+        {% for producto in productos %}
+            <div class="product-card">
+                <h3>{{ producto.nombre }}</h3>
+                <p><strong>Categoría:</strong> <span class="badge">{{ producto.categoria }}</span></p>
+                <p class="price">Precio: ${{ producto.precio }}</p>
+                <p><strong>Stock disponible:</strong> {{ producto.stock }} unidades</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 </body>
 </html>
