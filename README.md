@@ -6,4 +6,4 @@
 
 ## Repositorio de Código
 El código fuente de este proyecto se encuentra alojado en el siguiente repositorio:
-* Enlace: [https://github.com/TuUsuario/evaluacion_agrovida](https://github.com/TuUsuario/evaluacion_agrovida)
+* Enlace: https://github.com/natiee2/evaluacion_agrovida.git
