@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Productos</title>
+</head>
+<body>
+
+<nav>
+    <a url 'detalle' %}Inicio</a> |
+    <% url 'productos' %}Productos</a> |
+    <a url 'contacto' %}Contacto</a>
+</nav>
+
+<h1>Productos</h1>
+
+{% for producto in productos %}
+<hr>
+<h3>{{ producto.nombre }}</h3>
+<p>Categoría: {{ producto.categoria }}</p>
+<p>Precio: {{ producto.precio }}</p>
+<p>Stock: {{ producto.stock }}</p>
+{% endfor %}
+
+</body>
+</html>

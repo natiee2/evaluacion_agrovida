@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio</title>
+</head>
+<body>
+
+<nav>
+    {% url 'detalle' %}Inicio</a> |
+    <a url 'productos' %}Productos</a> |
+    <a href="{% url 'contacto' %}">Contacto</<h1>Bienvenido a AgroVida SpA</h1>
+
+<p>
+Empresa dedicada a la venta de insumos agrícolas para agricultores y empresas del sector.
+</p>
+
+<h2>Producto destacado</h2>
+
+<p>{{ producto.nombre }}</p>
+<p>{{ producto.categoria }}</p>
+<p>{{ producto.precio }}</p>
+<p>{{ producto.stock }}</p>
+
+</body>
+</html>
